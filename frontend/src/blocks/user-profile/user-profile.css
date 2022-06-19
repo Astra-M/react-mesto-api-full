@@ -1,0 +1,12 @@
+.user-profile {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 36px;
+}
+
+@media screen and (max-width: 790px) {
+  .user-profile {
+    flex-direction: column;
+    align-items: center;
+  }
+}

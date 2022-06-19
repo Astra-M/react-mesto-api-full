@@ -1,0 +1,12 @@
+.popup__close_type_place {
+  top: -8px;
+  right: -40px;
+  align-self: flex-end;
+}
+
+@media screen and (max-width: 530px) {
+  .popup__close_type_place  {
+    top: -16px;
+    right: 0px;
+  }
+}

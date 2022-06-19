@@ -1,0 +1,8 @@
+.popup__container_confirm {
+  justify-content: center;
+  align-items: center;
+  padding: 60px 36px 60px 36px;
+  margin: 0px;
+  box-sizing: border-box;
+  justify-content: space-between;
+}

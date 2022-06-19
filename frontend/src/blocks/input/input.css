@@ -1,0 +1,12 @@
+.input {
+  padding-left: 20px;
+}
+
+@media screen and (max-width: 790px) {
+  .input {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    padding: 0;
+  }
+}

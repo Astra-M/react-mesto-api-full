@@ -1,0 +1,23 @@
+.delete-btn {
+  /* visibility: visible; */
+  /* display: block; */
+
+  position: absolute;
+  background-image: url("../../images/trash-icon.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 18px;
+  height: 19px;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  opacity: 1;
+  transition: .5s;
+  cursor: pointer;
+  top: 20px;
+  right: 20px;
+}
+
+.delete-btn:hover {
+  opacity: .5;
+}

@@ -1,0 +1,14 @@
+.popup__text-container {
+  display: flex;
+  flex-direction: column;
+  margin-right: 36px;
+  margin-left: 36px;
+}
+
+
+@media screen and (max-width: 500px) {
+  .popup__text-container {
+    margin-right: 22px;
+    margin-left: 22px;
+  }
+}

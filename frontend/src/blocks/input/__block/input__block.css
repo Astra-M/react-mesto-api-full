@@ -1,0 +1,11 @@
+.input__block {
+  display: flex;
+  align-items: baseline;
+  max-width: 336px;
+}
+
+@-moz-document url-prefix() {
+  .input__block {
+    align-items: center;
+  }
+}

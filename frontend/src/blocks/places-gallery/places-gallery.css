@@ -1,0 +1,10 @@
+.places-gallery {
+  padding: 47px 0 0 0;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 790px) {
+  .places-gallery {
+    padding-top: 36px;
+  }
+}

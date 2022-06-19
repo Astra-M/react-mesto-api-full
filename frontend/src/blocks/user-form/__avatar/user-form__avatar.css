@@ -1,0 +1,37 @@
+.user-form__avatar {
+  width: 120px;
+  height: 120px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+  position: relative;
+  transition: .5s;
+  cursor: pointer;
+}
+
+.user-form__avatar:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  background-image: url(../../../images/edit-avatar-icon.svg);
+  background-repeat: no-repeat;
+  background-size: 26px;
+  background-position: center;
+  border-radius: 50%;
+  visibility: hidden;
+}
+
+.user-form__avatar:hover:before {
+  visibility: visible;
+}
+
+@media screen and (max-width: 500px) {
+  .user-form__avatar {
+    margin-top: 38px;
+  }
+}
