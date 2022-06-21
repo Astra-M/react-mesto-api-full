@@ -43,7 +43,7 @@ function App() {
       .then (res => {
         const data = res.map(item => {
           //
-          console.log('item =>',item )
+          // console.log('item =>',item )
           return {
             link: item.link,
             likes: item.likes,
@@ -59,14 +59,62 @@ function App() {
       .catch(err => console.log(err))
   }, [])
 
+  // useEffect(() => {
+  //   if (loggedIn) {
+  //       history.push("/");
+  //       return;
+  //   }
+
+  //   // history.push('/sign-in');
+  //   history.push('/signin');
+  // }, [loggedIn]);
+
+  //копия
+  // useEffect(() => {
+  //   if (loggedIn) {
+  //       history.push("/");
+  //       return;
+  //   }
+  //   history.push('/sign-in');
+  // }, [loggedIn]);
+
   useEffect(() => {
     if (loggedIn) {
         history.push("/");
         return;
     }
-    // history.push('/sign-in');
-    history.push('/signin');
-  }, [loggedIn]);
+    history.push('/sign-in');
+  },);
+
+
+  // React.useEffect(() => {
+  //   if (loggedIn) {
+  //     api.getProfile()
+  //       .then(res => {
+  //         setCurrentUser(res)
+  //       })
+  //       .catch(err => console.log(err))
+  //     api.getCards()
+  //       .then (res => {
+  //         const data = res.map(item => {
+  //           return {
+  //             link: item.link,
+  //             likes: item.likes,
+  //             title: item.name,
+  //             key: item._id,
+  //             id: item._id,
+  //             ownerId: item.owner,
+  //           }
+  //         })
+  //         setCards(data)
+  //       })
+  //       .catch(err => console.log(err))
+  //       history.push("/");
+  //       return;
+  //   }
+  //   history.push('/signin');
+  // },)
+
 
   useEffect(() => {
     tokenCheck();
@@ -155,7 +203,7 @@ function App() {
       .then(res => {
 
          //////////
-console.log('res=>',res)
+// console.log('res=>',res)
 
         const newCard = 
           {
@@ -193,7 +241,7 @@ const handleLogin = (email, password) => {
         localStorage.setItem('token', data.token);
         tokenCheck();
         ///
-        setLoggedIn(true)
+        // setLoggedIn(true)
       })
       .catch((err) => {
         setIsErrorTooltipOpen(true)

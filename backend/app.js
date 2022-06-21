@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const { celebrate, Joi } = require('celebrate');
@@ -19,6 +20,12 @@ const options = {
   ],
   credentials: true,
 };
+
+
+//
+console.log(process.env.NODE_ENV);
+console.log(process.env.JWT_SECRET);
+
 
 const app = express();
 
