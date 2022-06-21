@@ -4,10 +4,30 @@ import { CurrentUserContext } from '../contexts/CurrentUserContext';
 function Card (props) {
   
   const userContext = React.useContext(CurrentUserContext);
+ //////////
+// console.log('userContext=>',userContext)
+// console.log('props.card=>',props.card)
+console.log('props.card.likes=>',props.card.likes)
+console.log('props.card.likes._id=>',props.card.likes._id)
+console.log('props.card.likes[0]=>',props.card.likes[0])
+console.log('userContext._id=>',userContext._id)
+
+// console.log('userContext._id=>',userContext._id)
+// console.log('props.card.ownerId=>',props.card.ownerId)
 
   const isOwn = (userContext._id === props.card.ownerId); 
-  const isLiked = props.card.likes.some(i => i._id === userContext._id);
-  
+ 
+  const isLiked = props.card.likes.some(i => i === userContext._id);
+
+  // const isLiked = props.card.likes.some(i => i._id === userContext._id);
+  // const isLiked = props.card.likes.some((i) => {
+  //   console.log('i=>',i)
+
+ //  i.id === userContext._id);
+//  })
+  //
+  // console.log('isLiked=>',isLiked)
+
   const cardDeleteButtonClassName = (`delete-btn ${isOwn ? '': 'delete-btn_hidden'}`);
   const cardLikeButtonClassName = `like-btn ${isLiked ? 'like-btn_active' : ''}`;
 
