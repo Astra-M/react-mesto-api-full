@@ -33,6 +33,7 @@ function App() {
   const history = useHistory();
 
   React.useEffect(() => {
+  if (loggedIn) {
     api.getProfile()
       .then(res => {
         setCurrentUser(res)
@@ -50,33 +51,41 @@ function App() {
             title: item.name,
             key: item._id,
             id: item._id,
-            // ownerId: item.owner._id,
             ownerId: item.owner,
           }
         })
         setCards(data)
       })
       .catch(err => console.log(err))
-  }, [])
+    }
+  }, [loggedIn])
 
-  // useEffect(() => {
-  //   if (loggedIn) {
-  //       history.push("/");
-  //       return;
-  //   }
-
-  //   // history.push('/sign-in');
-  //   history.push('/signin');
-  // }, [loggedIn]);
-
-  //копия
-  // useEffect(() => {
-  //   if (loggedIn) {
-  //       history.push("/");
-  //       return;
-  //   }
-  //   history.push('/sign-in');
-  // }, [loggedIn]);
+  // React.useEffect(() => {
+  //   api.getProfile()
+  //     .then(res => {
+  //       setCurrentUser(res)
+  //     })
+  //     .catch(err => console.log(err))
+    
+  //   api.getCards()
+  //     .then (res => {
+  //       const data = res.map(item => {
+  //         //
+  //         // console.log('item =>',item )
+  //         return {
+  //           link: item.link,
+  //           likes: item.likes,
+  //           title: item.name,
+  //           key: item._id,
+  //           id: item._id,
+  //           // ownerId: item.owner._id,
+  //           ownerId: item.owner,
+  //         }
+  //       })
+  //       setCards(data)
+  //     })
+  //     .catch(err => console.log(err))
+  // }, [])
 
   useEffect(() => {
     if (loggedIn) {
@@ -85,36 +94,6 @@ function App() {
     }
     history.push('/sign-in');
   },);
-
-
-  // React.useEffect(() => {
-  //   if (loggedIn) {
-  //     api.getProfile()
-  //       .then(res => {
-  //         setCurrentUser(res)
-  //       })
-  //       .catch(err => console.log(err))
-  //     api.getCards()
-  //       .then (res => {
-  //         const data = res.map(item => {
-  //           return {
-  //             link: item.link,
-  //             likes: item.likes,
-  //             title: item.name,
-  //             key: item._id,
-  //             id: item._id,
-  //             ownerId: item.owner,
-  //           }
-  //         })
-  //         setCards(data)
-  //       })
-  //       .catch(err => console.log(err))
-  //       history.push("/");
-  //       return;
-  //   }
-  //   history.push('/signin');
-  // },)
-
 
   useEffect(() => {
     tokenCheck();
