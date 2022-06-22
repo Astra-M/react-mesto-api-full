@@ -23,8 +23,8 @@ const options = {
 
 
 //
-console.log(process.env.NODE_ENV);
-console.log(process.env.JWT_SECRET);
+// console.log(process.env.NODE_ENV);
+// console.log(process.env.JWT_SECRET);
 
 
 const app = express();
