@@ -53,8 +53,6 @@ const deleteCard = (req, res, next) => {
 };
 
 const likeCard = (req, res, next) => {
-  console.log('like req.params=>', req.params);
-
   Card.findByIdAndUpdate(
     req.params.cardId,
     { $addToSet: { likes: req.user.id } },
@@ -74,14 +72,10 @@ const likeCard = (req, res, next) => {
 };
 
 const dislikeCard = (req, res, next) => {
-  console.log('dislike req.params.cardId=>', req.params.cardId);
-    // console.log(' req.params=>', req.params);
-
   Card.findByIdAndUpdate(
     req.params.cardId,
     { $pull: { likes: req.user.id } },
     { new: true },
-
   )
     .then((card) => {
       if (!card) {

@@ -21,23 +21,15 @@ const options = {
   credentials: true,
 };
 
-
-//
-// console.log(process.env.NODE_ENV);
-// console.log(process.env.JWT_SECRET);
-
-
 const app = express();
 
 mongoose.connect('mongodb://localhost:27017/mestodb');
 
-// const { PORT = 3000 } = process.env;
 const { PORT = 3001 } = process.env;
 
 app.listen(PORT);
 
 app.use(express.json());
-// app.use(cors());
 app.use('*', cors(options));
 
 app.use(requestLogger);

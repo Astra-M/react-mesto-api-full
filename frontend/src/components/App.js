@@ -43,8 +43,6 @@ function App() {
     api.getCards()
       .then (res => {
         const data = res.map(item => {
-          //
-          // console.log('item =>',item )
           return {
             link: item.link,
             likes: item.likes,
@@ -59,33 +57,6 @@ function App() {
       .catch(err => console.log(err))
     }
   }, [loggedIn])
-
-  // React.useEffect(() => {
-  //   api.getProfile()
-  //     .then(res => {
-  //       setCurrentUser(res)
-  //     })
-  //     .catch(err => console.log(err))
-    
-  //   api.getCards()
-  //     .then (res => {
-  //       const data = res.map(item => {
-  //         //
-  //         // console.log('item =>',item )
-  //         return {
-  //           link: item.link,
-  //           likes: item.likes,
-  //           title: item.name,
-  //           key: item._id,
-  //           id: item._id,
-  //           // ownerId: item.owner._id,
-  //           ownerId: item.owner,
-  //         }
-  //       })
-  //       setCards(data)
-  //     })
-  //     .catch(err => console.log(err))
-  // }, [])
 
   useEffect(() => {
     if (loggedIn) {
@@ -155,12 +126,7 @@ function App() {
   }
 
   function handleCardLike(card) {
-
     const isLiked = card.likes.some(i => i === currentUser._id);
-
-
-    // const isLiked = card.likes.some(i => i._id === currentUser._id);
-    
     const request = isLiked ? api.deleteLike(card.id) : api.addLike(card.id);
     request.then(res => {
       const newCard = {
@@ -169,7 +135,6 @@ function App() {
           title: res.name,
           key: res._id,
           id: res._id,
-          // ownerId: res.owner._id,
           ownerId: res.owner,
       }
       setCards(state => state.map (item => item.id === card.id ? newCard : item))
@@ -180,10 +145,6 @@ function App() {
   function handleAddPlaceSubmit({name, link}) {
     api.addCard(name,link)
       .then(res => {
-
-         //////////
-// console.log('res=>',res)
-
         const newCard = 
           {
             link: res.link,
@@ -191,7 +152,6 @@ function App() {
             title: res.name,
             key: res._id,
             id: res._id,
-            // ownerId: res.owner._id,
             ownerId: res.owner,
           }
         setCards([newCard, ...cards])
@@ -219,8 +179,6 @@ const handleLogin = (email, password) => {
       .then((data) => {
         localStorage.setItem('token', data.token);
         tokenCheck();
-        ///
-        // setLoggedIn(true)
       })
       .catch((err) => {
         setIsErrorTooltipOpen(true)
@@ -242,9 +200,8 @@ const tokenCheck = () => {
           .then((res) => {
               setUserData({
               email: res.email,
-            });
+              });
               setLoggedIn(true);
-            // console.log(res)
           })
           .catch(err => console.log(err))
     }
@@ -265,12 +222,10 @@ return (
                       imageLink={ErrorImage} name='error-modal'/>
 
         <Switch>
-          {/* <Route path="/sign-in"> */}
           <Route path="/signin">
             <Login handleLogin={handleLogin} />
           </Route>
           
-          {/* <Route path="/sign-up"> */}
           <Route path="/signup">
             <Register handleRegister={handleRegister}/>
           </Route>

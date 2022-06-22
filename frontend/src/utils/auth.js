@@ -1,6 +1,3 @@
-// export const BASE_URL = 'https://auth.nomoreparties.co';
-// export const BASE_URL = 'http://localhost:3001';
-// const { NODE_ENV, JWT_SECRET } = process.env;
 export const BASE_URL = `${window.location.protocol}${process.env.REACT_APP_API_URL || '//localhost:3001'}`
 
 const checkResponse = (res) => {
